@@ -1,0 +1,33 @@
+{
+	"tasks": {
+		"modo": "deno run -A jsr:@quffe/modo"
+	},
+	"workspace": [
+		"./apps/firstapp",
+		"./apps/test",
+		"./apps/secondapp"
+	],
+	"compilerOptions": {
+		"lib": [
+			"ES2020",
+			"DOM",
+			"DOM.Iterable"
+		],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"jsxImportSourceTypes": "@types/react"
+	},
+	"fmt": {
+		"semiColons": false,
+		"useTabs": true
+	},
+	"imports": {
+		"@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
+		"@types/react": "npm:@types/react@^18.3.11",
+		"@types/react-dom": "npm:@types/react-dom@^18.3.1",
+		"@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.3",
+		"react": "npm:react@^18.3.1",
+		"react-dom": "npm:react-dom@^18.3.1",
+		"vite": "npm:vite@^5.4.10"
+	}
+}
