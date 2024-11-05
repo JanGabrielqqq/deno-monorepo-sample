@@ -1,4 +1,6 @@
-# Monorepo
+# Deno Monorepo
+
+Sample Monorepo using Deno Vite React Typescript With Shared Components
 
 ## Getting Started
 
@@ -80,4 +82,23 @@ Example to run dev on firstapp directory:
 
 ```bash
 $ deno task modo dev -d firstapp
+```
+
+### 5. Creating Library
+
+To run local lib add this on vite.config.ts on project to to fix alias on rollup
+and esbuild
+[(reference)](https://github.com/denoland/deno-vite-plugin/issues/19#issue-2596281103)
+
+> **Note:** required on deno.json name, exports, version
+
+```diff
+// vite.config.ts
+export default defineConfig({
++  resolve: {
++    alias: {
++      "@scope/components": join(dirname(fromFileUrl(import.meta.url)), "../../libs/components/mod.tsx")
++    }
++  }
+})
 ```

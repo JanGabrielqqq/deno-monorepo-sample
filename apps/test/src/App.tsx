@@ -3,13 +3,14 @@ import "./App.css"
 import { useState } from "react"
 // @ts-expect-error Unable to infer type at the moment
 import reactLogo from "./assets/react.svg"
+import { DinoNuggys } from "@scope/components"
 
 function App() {
 	const [count, setCount] = useState(0)
 
 	return (
 		<>
-			<img src="/vite-deno.svg" alt="Vite with Deno" />
+			<DinoNuggys />
 			<div>
 				<a href="https://vite.dev" target="_blank">
 					<img src="/vite.svg" className="logo" alt="Vite logo" />

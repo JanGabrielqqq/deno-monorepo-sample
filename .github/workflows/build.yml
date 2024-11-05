@@ -35,6 +35,7 @@ jobs:
       - name: Run linter
         run: deno lint
 
+      # Uncomment if you have test scripts
       # - name: Run tests
       #   run: deno test -A
 

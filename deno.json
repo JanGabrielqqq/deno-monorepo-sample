@@ -4,8 +4,9 @@
 	},
 	"workspace": [
 		"./apps/firstapp",
+		"./apps/secondapp",
 		"./apps/test",
-		"./apps/secondapp"
+		"./libs/components"
 	],
 	"compilerOptions": {
 		"lib": [
@@ -28,6 +29,7 @@
 		"@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.3",
 		"react": "npm:react@^18.3.1",
 		"react-dom": "npm:react-dom@^18.3.1",
-		"vite": "npm:vite@^5.4.10"
+		"vite": "npm:vite@^5.4.10",
+		"@std/path": "jsr:@std/path"
 	}
 }
