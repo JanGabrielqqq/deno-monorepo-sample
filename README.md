@@ -66,6 +66,12 @@ select `deno-react` | `typescript`
 }
 ```
 
+- Delete public directory
+- replace all vite.config.ts content with export from vite.cofig.base.ts
+```diff
++ export { default } from "../../vite.config.base.ts"
+```
+
 ### 4. Run Scripts
 
 what we use: [Modo](https://jsr.io/@quffe/modo)
@@ -84,16 +90,21 @@ Example to run dev on firstapp directory:
 $ deno task modo dev -d firstapp
 ```
 
+Example to run build on all projects except libs folder
+```bash
+$ deno task modo build -x ./libs/
+```
+
 ### 5. Creating Library
 
-To run local lib add this on vite.config.ts on project to to fix alias on rollup
+To run local lib add this on vite.config.base.ts on project to to fix alias on rollup
 and esbuild
 [(reference)](https://github.com/denoland/deno-vite-plugin/issues/19#issue-2596281103)
 
 > **Note:** required on deno.json name, exports, version
 
 ```diff
-// vite.config.ts
+// vite.config.base.ts
 export default defineConfig({
 +  resolve: {
 +    alias: {

@@ -5,7 +5,11 @@ import { dirname, fromFileUrl, join } from "@std/path"
 // https://vite.dev/config/
 
 export default defineConfig({
-	plugins: [deno(), react()],
+	plugins: [
+    deno(),
+    react(),
+  ],
+  publicDir: join(dirname(fromFileUrl(import.meta.url)),'./public'),
 	resolve: {
 		alias: {
 			"@scope/components": join(
