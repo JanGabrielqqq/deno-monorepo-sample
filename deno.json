@@ -1,35 +1,38 @@
 {
-	"tasks": {
-		"modo": "deno run -A jsr:@quffe/modo"
-	},
-	"workspace": [
-		"./apps/firstapp",
-		"./apps/secondapp",
-		"./apps/test",
-		"./libs/components"
-	],
-	"compilerOptions": {
-		"lib": [
-			"ES2020",
-			"DOM",
-			"DOM.Iterable"
-		],
-		"jsx": "react-jsx",
-		"jsxImportSource": "react",
-		"jsxImportSourceTypes": "@types/react"
-	},
-	"fmt": {
-		"semiColons": false,
-		"useTabs": true
-	},
-	"imports": {
-		"@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
-		"@types/react": "npm:@types/react@^18.3.11",
-		"@types/react-dom": "npm:@types/react-dom@^18.3.1",
-		"@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.3",
-		"react": "npm:react@^18.3.1",
-		"react-dom": "npm:react-dom@^18.3.1",
-		"vite": "npm:vite@^5.4.10",
-		"@std/path": "jsr:@std/path"
-	}
+  "tasks": {
+    "modo": "deno run -A jsr:@quffe/modo",
+    "ci": "deno install --allow-scripts=npm:@swc/core@1.9.3"
+  },
+  "workspace": [
+    "./apps/firstapp",
+    "./apps/secondapp",
+    "./apps/test",
+    "./libs/components"
+  ],
+  "nodeModulesDir": "auto",
+  "compilerOptions": {
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "jsxImportSourceTypes": "@types/react"
+  },
+  "fmt": {
+    "semiColons": false,
+    "useTabs": false,
+    "indentWidth": 2
+  },
+  "imports": {
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
+    "@types/react": "npm:@types/react@^18.3.11",
+    "@types/react-dom": "npm:@types/react-dom@^18.3.1",
+    "@vitejs/plugin-react-swc": "npm:@vitejs/plugin-react-swc@^3.7.1",
+    "react": "npm:react@^18.3.1",
+    "react-dom": "npm:react-dom@^18.3.1",
+    "vite": "npm:vite@5.4.11",
+    "@std/path": "jsr:@std/path"
+  }
 }

@@ -1,21 +1,21 @@
 {
-	"name": "@scope/components",
-	"version": "0.1.0",
-	"exports": {
-		".": "./mod.tsx",
-		"./src": "./src/index.tsx"
-	},
-	"exclude": [
-		"./dist/",
-		"./vite"
-	],
-	"tasks": {
-		"dev": "deno run -A --node-modules-dir npm:vite",
-		"build": "deno run -A --node-modules-dir npm:vite build",
-		"preview": "deno run -A --node-modules-dir npm:vite preview",
-		"serve": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
-	},
-	"imports": {
-		"vite-plugin-dts": "npm:vite-plugin-dts"
-	}
+  "name": "@scope/components",
+  "version": "0.1.0",
+  "exports": {
+    ".": "./mod.tsx",
+    "./src": "./src/index.tsx"
+  },
+  "exclude": [
+    "./dist/",
+    "./vite"
+  ],
+  "tasks": {
+    "dev": "deno run -A --node-modules-dir npm:vite",
+    "build": "deno run -A --node-modules-dir npm:vite build",
+    "preview": "deno run -A --node-modules-dir npm:vite preview",
+    "serve": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
+  },
+  "imports": {
+    "vite-plugin-dts": "npm:vite-plugin-dts"
+  }
 }
