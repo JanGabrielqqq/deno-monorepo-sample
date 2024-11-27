@@ -7,7 +7,7 @@
   },
   "exclude": [
     "./dist/",
-    "./vite"
+    ".vite"
   ],
   "tasks": {
     "dev": "deno run -A --node-modules-dir npm:vite",

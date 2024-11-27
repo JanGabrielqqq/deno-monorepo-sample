@@ -115,3 +115,7 @@ export default defineConfig({
 +  }
 })
 ```
+
+### 6. Tree shakeable assets
+
+sample code on './libs/components/src/utils.ts' sample usage on './apps/test'
