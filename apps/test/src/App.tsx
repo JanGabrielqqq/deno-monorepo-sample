@@ -1,7 +1,7 @@
 import "./App.css"
 // @deno-types="@types/react"
 import React, { useState } from "react"
-import { requestFile } from "@scope/components"
+import { DinoNuggys, requestFile } from "@scope/components"
 import data from "./assets/data.json" with { type: "json" }
 
 function App() {
@@ -10,8 +10,11 @@ function App() {
   // for demonstration purposes check on chrome devtools Network > Img then click count button
   const image = count === 1 ? "./vite.svg" : "./react.svg"
   const imageDino = count === 2 ? "./vite-deno.svg" : ""
+
   return (
     <React.Fragment>
+      <DinoNuggys />
+      <p>{import.meta.env.VITE_APP_TEST_TWO}</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
       <img src={requestFile(imageDino)} alt="Vite with Deno" />
       <div>

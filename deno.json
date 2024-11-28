@@ -1,6 +1,9 @@
 {
   "tasks": {
     "modo": "deno run -A jsr:@quffe/modo",
+    "env": "deno run -A npm:env-cmd",
+    "modo:prod": "deno task env -f .env.prod deno task modo",
+    "modo:dev": "deno task env -f .env.development deno task modo",
     "ci": "deno install --allow-scripts=npm:@swc/core@1.9.3"
   },
   "workspace": [

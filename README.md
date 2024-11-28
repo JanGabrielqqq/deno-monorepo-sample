@@ -119,3 +119,32 @@ export default defineConfig({
 ### 6. Tree shakeable assets
 
 sample code on './libs/components/src/utils.ts' sample usage on './apps/test'
+
+### 7. ENV variables
+
+Environment Variables can be placed anywhere, Root DIR or per App.
+
+to use ENV on root use `npm:env-cmd`
+
+```diff
+  "scripts": {
+    ...
++    "env": "deno run -A npm:env-cmd",
++    "modo:prod": "deno task env -f .env.prod deno task modo",
++    "modo:dev": "deno task env -f .env.development deno task modo",
+  }
+```
+
+to use ENV per App use `dotenv` from `vite`
+
+```diff
+  "scripts": {
+    ...
+-    "dev": "deno run -A --node-modules-dir npm:vite",
++    "dev": "deno run -A --node-modules-dir npm:vite --mode prod",
+  }
+```
+run this to test both root dir and app env
+```bash
+$ deno task modo:prod dev -d test
+```
