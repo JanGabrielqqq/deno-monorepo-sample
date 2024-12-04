@@ -28,7 +28,7 @@ Sample Monorepo using Deno Vite React Typescript With Shared Components
 use [Create Vite Extra](https://github.com/bluwy/create-vite-extra)
 
 ```bash
-$ deno run -A npm:create-vite-extra
+$ deno init --npm create-vite-extra
 ```
 
 select `deno-react` | `typescript`
@@ -52,13 +52,14 @@ select `deno-react` | `typescript`
 ```
 
 - add the project directory on root `deno.json` `>` workspace array
-- and also add title for modo to identify the project (optional could use
-  "./apps/{dir}" to run on modo)
+- add scripts for specific project
 
 ```diff
 // root deno.json
 {
-+ "title": "{project}",
+  "scripts": {
++    "dev:{project}": "deno --env-file .env.development task --cwd ./apps/{project} dev"
+  }
   "workspace": [
     ...
 +   './apps/{project}'
@@ -75,26 +76,8 @@ select `deno-react` | `typescript`
 
 ### 4. Run Scripts
 
-what we use: [Modo](https://jsr.io/@quffe/modo)
-
-> **Note:** **Modo** run any tasks or scripts that match the provided task.
-
-Example to run all project with "dev":
-
 ```bash
-$ deno task modo dev
-```
-
-Example to run dev on firstapp directory:
-
-```bash
-$ deno task modo dev -d firstapp
-```
-
-Example to run build on all projects except libs folder
-
-```bash
-$ deno task modo build -x ./libs/
+deno task dev:fa
 ```
 
 ### 5. Creating Library
@@ -124,27 +107,18 @@ sample code on './libs/components/src/utils.ts' sample usage on './apps/test'
 
 Environment Variables can be placed anywhere, Root DIR or per App.
 
-to use ENV on root use `npm:env-cmd`
-
 ```diff
   "scripts": {
     ...
-+    "env": "deno run -A npm:env-cmd",
-+    "modo:prod": "deno task env -f .env.prod deno task modo",
-+    "modo:dev": "deno task env -f .env.development deno task modo",
+-    "build:prod": "deno task --recursive build",
+-    "build:dev": "deno task --recursive build",
++    "build:prod": "deno --env-file .env.prod task --recursive build",
++    "build:dev": "deno --env-file .env.development task --recursive build",
   }
 ```
 
-to use ENV per App use `dotenv` from `vite`
-
-```diff
-  "scripts": {
-    ...
--    "dev": "deno run -A --node-modules-dir npm:vite",
-+    "dev": "deno run -A --node-modules-dir npm:vite --mode prod",
-  }
-```
 run this to test both root dir and app env
+
 ```bash
-$ deno task modo:prod dev -d test
+$ deno task dev:test
 ```
